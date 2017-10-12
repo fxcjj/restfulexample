@@ -1,5 +1,6 @@
 package cn.vic.rest;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -39,4 +40,16 @@ public class JSONService {
 		return Response.status(200).entity(result).build();
 	}
 
+	/**
+	 * json转换为对象
+	 * @return
+	 */
+	@POST
+	@Path("/login")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response login(HttpServletRequest request) {
+		String result = "result: " + request.getParameter("name") + ", " + request.getParameter("psw");
+		return Response.status(200).entity(result).build();
+	}
 }
