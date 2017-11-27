@@ -49,7 +49,9 @@ public class JSONService {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response login(HttpServletRequest request) {
-		String result = "result: " + request.getParameter("name") + ", " + request.getParameter("psw");
-		return Response.status(200).entity(result).build();
+		System.out.println(request.getParameter("name"));
+		System.out.println(request.getParameter("psw"));
+		
+		return Response.status(200).entity("good").build();
 	}
 }
